@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 轻松上手
-      link: /markdown-examples
+      link: /guide/prepare
     - theme: alt
       text: 如何安装
       link: /api-examples
@@ -19,7 +19,7 @@ features:
     details: 小型团队快速迭代业务过程中最简洁易用的CICD工具
   - title: 特点
     details: 支持二进制或云端部署，开箱即用，不需要各种复杂的流水线配置
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 开源
+    details: 项目完全开源，任意使用，当然也欢迎你的PR
 ---
 
