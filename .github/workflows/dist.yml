@@ -20,12 +20,4 @@ jobs:
           node-version: '16'
       - run: |
           yarn install
-          yarn run build
-      - name: Pages Commit & Publish
-        run: |
-          cd docs/.vitepress/dist
-          touch .nojekyll
-          git init
-          git add -A        
-          git commit -m "publish site"
-          git push -f https://fanhousanbu:${{secrets.GITHUB_TOKEN}}@github.com/go-to-cloud/go-to-cloud-press.git  master:gh-pages
+          yarn run docs:build
