@@ -1,12 +1,12 @@
 # 构建节点
 
-> 阅读时间大约需要2分钟
+> 阅读时间大约需要3分钟
 
 ## 安装构建节点
 
 > 目前仅支持使用k8s作为构建节点
 
-![安装构建节点](/assets/artifact_bind.png)
+![安装构建节点](/assets/build_node_bind.png)
 
 :::details 同时构建任务上限
 为了控制构建机器的资源上限，提供了构建任务的上限，如果超出任务上限，则后续任务会进入等待，直到有构建节点空闲出来
@@ -33,7 +33,7 @@ kubeconfig通常位于宿主机的$HOME/.kube目录, 如果是k3s，则位于/et
 
 ## 构建节点列表
 
-![构建节点列表](/assets/artifact_list.png)
+![构建节点列表](/assets/build_node_list.png)
 
 :::info 工作负载
 工作负载表示该构建节点剩余多少空闲任务等待执行
@@ -45,4 +45,4 @@ kubeconfig通常位于宿主机的$HOME/.kube目录, 如果是k3s，则位于/et
 
 在每个构建节点的右侧`操作`栏可以查看、编辑或卸载构建节点
 
-![管理构建节点](/assets/artifact_action.png)
+![管理构建节点](/assets/build_node_action.png)
