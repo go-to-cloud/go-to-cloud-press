@@ -16,13 +16,12 @@ jobs:
         with:
           node-version: 16
           cache: yarn
-      - run: yarn install --frozen-lockfile
-
-      - name: Build
-        run: yarn docs:build
+      - run: |
+          yarn install
+          yarn docs:build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.PAGE_DIST_TOKEN }}
-          publish_dir: docs/.vitepress/dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

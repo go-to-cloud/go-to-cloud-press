@@ -2,13 +2,12 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: "/go-to-cloud-press/docs/.vitepress/dist",
   title: "Go-To-Cloud",
   description: "Go-To-Cloud Official Website",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '指南', link: '/' },
+      { text: '指南', link: '/guide/prepare' },
       { text: '安装', link: '/markdown-examples' },
       { text: '日志', link: '/markdown-examples' }
     ],

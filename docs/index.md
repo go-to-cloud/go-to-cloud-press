@@ -17,13 +17,15 @@ hero:
 features:
   - icon:
       src: /assets/svg/target.svg
-      width: 10
-      height: 10
     title: 目标
     details: 小型团队快速迭代业务过程中最简洁易用的CICD工具
-  - title: 特点
+  - icon:
+      src: /assets/svg/highlight.svg
+    title: 特点
     details: 支持二进制或云端部署，开箱即用，不需要各种复杂的流水线配置
-  - title: 开源
+  - icon:
+      src: /assets/svg/opensrc.svg
+    title: 开源
     details: 项目完全开源，任意使用，当然也欢迎你的PR
 ---
 
