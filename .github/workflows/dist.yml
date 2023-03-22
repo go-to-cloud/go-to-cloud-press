@@ -19,4 +19,5 @@ jobs:
         with:
           node-version: '16'
       - run: |
-          yarn add -D vitepress          
+          yarn add -D vitepress
+          yarn run docs:build
