@@ -15,9 +15,9 @@ jobs:
         with:
           submodules: true
       - name: Build page
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
       - run: |
-          yarn install
-          yarn run docs:build
+          npm install -g vitepress
+          npm run docs:build
