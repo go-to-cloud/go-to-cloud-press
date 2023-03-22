@@ -43,6 +43,8 @@
 
 ![代码仓库列表](/assets/code_repo_list.png)
 
+## 管理仓库
+
 在每个仓库的右侧`操作`栏可以查看、编辑或解除绑定
 
 ![img.png](/assets/code_repo_action.png)
