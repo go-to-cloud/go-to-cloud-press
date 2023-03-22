@@ -19,5 +19,4 @@ jobs:
         with:
           node-version: '16'
       - run: |
-          npm install -g vitepress
-          npm run docs:build
+          yarn add -D vitepress          
