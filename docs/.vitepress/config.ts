@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Go-To-Cloud",
   description: "Go-To-Cloud Official Website",
+  base: "/go-to-cloud-press",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
