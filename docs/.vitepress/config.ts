@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/go-to-cloud-press/docs/.vitepress/dist",
   title: "Go-To-Cloud",
   description: "Go-To-Cloud Official Website",
   themeConfig: {
