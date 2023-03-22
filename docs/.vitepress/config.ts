@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Go-To-Cloud",
   description: "Go-To-Cloud Official Website",
-  base: "/go-to-cloud-press",
+  // base: "/go-to-cloud-press",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -18,17 +18,18 @@ export default defineConfig({
         text: '轻松上手', link: '/guide/prepare',
         items: [
           {
-            text:'配置环境',
+            text:'配置环境', link: '/guide/configure',
             items: [{
-              text: '代码仓库'
+              text: '代码仓库', link: '/guide/configure/coderepo'
             }, {
-              text: '制品仓库'
+              text: '构建节点', link: '/guide/configure/buildnode'
             }, {
-              text: '构建节点'
+              text: '制品仓库', link: '/guide/configure/artifact'
             }, {
-              text: '部署环境'
+              text: '部署环境', link: '/guide/configure/deploy'
             }]
           },
+          { text: '创建项目', link: '/api-examples' },
           { text: '开始构建', link: '/api-examples' },
           { text: '部署应用'}
         ]
