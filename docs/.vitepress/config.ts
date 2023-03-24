@@ -33,6 +33,8 @@ export default defineConfig({
             text: '项目管理', link: '/project/intro',
             items: [{
               text: '创建项目', link: '/project/new'
+            },{
+              text: '管理模块', link: '/project/manage'
             }]
           },
           { text: '开始构建', link: '/api-examples' },
