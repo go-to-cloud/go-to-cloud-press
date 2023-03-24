@@ -29,7 +29,12 @@ export default defineConfig({
               text: '部署环境', link: '/guide/configure/deploy'
             }]
           },
-          { text: '创建项目', link: '/api-examples' },
+          {
+            text: '项目管理', link: '/project/intro',
+            items: [{
+              text: '创建项目', link: '/project/new'
+            }]
+          },
           { text: '开始构建', link: '/api-examples' },
           { text: '部署应用'}
         ]
