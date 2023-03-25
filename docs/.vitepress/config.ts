@@ -15,10 +15,10 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: '轻松上手', link: '/guide/prepare',
+        text: '轻松上手', link: '/guide/configure/prepare',
         items: [
           {
-            text:'配置环境', link: '/guide/configure',
+            text:'配置环境', link: '/guide/configure/configure',
             items: [{
               text: '代码仓库', link: '/guide/configure/coderepo'
             }, {
@@ -30,16 +30,26 @@ export default defineConfig({
             }]
           },
           {
-            text: '项目管理', link: '/project/intro',
+            text: '项目管理', link: '/guide/project/intro',
             items: [{
-              text: '创建项目', link: '/project/new'
+              text: '创建项目', link: '/guide/project/new'
             },{
-              text: '管理模块', link: '/project/manage'
+              text: '管理模块', link: '/guide/project/manage'
             }]
           },
-          { text: '开始构建', link: '/api-examples' },
-          { text: '部署应用'}
-        ]
+          { text: '应用监控', link: '/guide/monitor/monitor' },
+          {
+            text: '账号管理', link: '/guide/authz/authz',
+            items: [{
+              text: '用户管理', link: '/guide/authz/users'
+            }, {
+              text: '组织管理'
+            }]
+          },
+          {
+            text: '附录1', link: '/guide/appendix_01'
+          }
+        ],
       }
     ],
 

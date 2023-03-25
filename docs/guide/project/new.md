@@ -24,4 +24,4 @@
 
 在列表右侧的`操作`按钮上可以修改项目信息(所属组织不可修改)或者删除项目
 
-![操作](../assets/project_action.png)
+![操作](../../assets/project_action.png)
