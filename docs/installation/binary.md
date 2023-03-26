@@ -21,20 +21,20 @@ docker run -d -p 5000:5000 --restart always --name registry registry:2
 :::code-group
 
 ```shell [macos arm64]
-wget
+wget https://github.com/go-to-cloud/go-to-cloud/releases/download/v1.0.0-beta/gotocloud-macos_arm64.tar.gz
 ```
 
 ```shell [macos amd64]
-wget
+wget https://github.com/go-to-cloud/go-to-cloud/releases/download/v1.0.0-beta/gotocloud-macos_amd64.tar.gz
 ```
 
 ```shell [linux amd64]
-wget
+wget https://github.com/go-to-cloud/go-to-cloud/releases/download/v1.0.0-beta/gotocloud-linux_amd64.tar.gz
 ```
 
 ```shell [windows]
 # 下载地址
-
+wget https://github.com/go-to-cloud/go-to-cloud/releases/download/v1.0.0-beta/gotocloud-windows_amd64.tar.gz
 ```
 
 :::
@@ -43,7 +43,7 @@ wget
 
 ```shell
 #!bin/bash
-tar -zxvf ./gotocloud-macos_amd64.tgz
+tar -zxvf ./gotocloud-<目标平台>.tar.gz
 ```
 
 ### 修改配置
