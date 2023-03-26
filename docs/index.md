@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 轻松上手
-      link: /guide/prepare
+      link: /guide/configure/prepare
     - theme: alt
       text: 如何安装
       link: /api-examples

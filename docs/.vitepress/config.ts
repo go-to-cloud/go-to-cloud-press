@@ -8,7 +8,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '指南', link: '/guide/prepare' },
+      { text: '指南', link: '/guide/configure/prepare' },
       { text: '安装', link: '/markdown-examples' },
       { text: '日志', link: '/markdown-examples' }
     ],
@@ -43,7 +43,7 @@ export default defineConfig({
             items: [{
               text: '用户管理', link: '/guide/authz/users'
             }, {
-              text: '组织管理'
+              text: '组织管理', link: '/guide/authz/orgs'
             }]
           },
           {
