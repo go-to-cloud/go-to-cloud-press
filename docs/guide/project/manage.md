@@ -160,16 +160,21 @@ Git地址中可以看到导入到项目中的仓库地址，选择仓库后，`�
 1. 副本数量：即Pod数量，根据实际情况选择，也可以在完成部署后再调整
 2. 端口映射：`服务端口`表示应用本身定义的端口，`容器端口`是指容器对外暴露可被外部访问的端口，通常来说我们会将这两个端口定义为同一个，即`容器端口`跟随`服务端口`
 3. 环境变量：为应用设置的环境变量，比如以下代码中就会使用到环境变量`ENV`，这就需要在这一栏参数中配置具体的键值对
+
 ::: code-group
+
 ```csharp
 System.Environment.GetEnvironmentVariable("ENV")
 ```
 ```go
 os.Env("ENV")
 ```
-4. 资源配置：限制容器可使用的内存和CPU资源，关于资源配置请参阅[k8s的相关介绍](https://kubernetes.io/zh-cn/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)
-5. 健康检查：k8s检测容器是否可用的接口，默认是`http`类型接口，地址：`healthz`，应当为每个应用都实现这个健康地址，因此这是一个必选项
+
 :::
+
+5. 资源配置：限制容器可使用的内存和CPU资源，关于资源配置请参阅[k8s的相关介绍](https://kubernetes.io/zh-cn/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)
+5. 健康检查：k8s检测容器是否可用的接口，默认是`http`类型接口，地址：`healthz`，应当为每个应用都实现这个健康地址，因此这是一个必选项
+
 
 配置完成后点击`提交`或`提交并部署`即完成方案的创建，选择后者可以立即执行一次部署
 

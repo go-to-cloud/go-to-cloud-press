@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Go-To-Cloud",
@@ -20,7 +21,7 @@ export default defineConfig({
     nav: [
       { text: '指南', link: '/guide/configure/prepare' },
       { text: '安装', link: '/installation/how' },
-      { text: '日志', link: '/markdown-examples' }
+      { text: '下载', link: '/installation/binary.html#下载地址' }
     ],
 
     sidebar: {
@@ -62,7 +63,10 @@ export default defineConfig({
         ],
       }],
       '/installation/': [{
-        text: '如何安装'
+        text: '如何安装', link: '/installation/how',
+        items: [{
+          text: '二进制部署', link: 'installation/binary'
+        }]
       }]
     },
     socialLinks: [
