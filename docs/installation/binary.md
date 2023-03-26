@@ -24,7 +24,7 @@ docker run -d -p 5000:5000 --restart always --name registry registry:2
 wget https://github.com/go-to-cloud/go-to-cloud/releases/download/1.0.0-beta/gotocloud-macos_arm64.tar.gz
 ```
 
-```shell [macos amd64]
+```shell [macos x64]
 wget https://github.com/go-to-cloud/go-to-cloud/releases/download/1.0.0-beta/gotocloud-macos_x64.tar.gz
 ```
 
