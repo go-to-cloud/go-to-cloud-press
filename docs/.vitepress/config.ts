@@ -4,17 +4,27 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Go-To-Cloud",
   description: "Go-To-Cloud Official Website",
+  lastUpdated: true,
   // base: "/go-to-cloud-press",
   themeConfig: {
+    outlineTitle: '本页目录',
+    lastUpdatedText: '最近更新时间',
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    footer: {
+      copyright: 'MIT Licensed. | Copyright © 2022-present Go-To-Cloud'
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '指南', link: '/guide/configure/prepare' },
-      { text: '安装', link: '/markdown-examples' },
+      { text: '安装', link: '/installation/how' },
       { text: '日志', link: '/markdown-examples' }
     ],
 
-    sidebar: [
-      {
+    sidebar: {
+      '/guide/': [{
         text: '轻松上手', link: '/guide/configure/prepare',
         items: [
           {
@@ -50,9 +60,11 @@ export default defineConfig({
             text: '附录1', link: '/guide/appendix_01'
           }
         ],
-      }
-    ],
-
+      }],
+      '/installation/': [{
+        text: '如何安装'
+      }]
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/go-to-cloud' }
     ]

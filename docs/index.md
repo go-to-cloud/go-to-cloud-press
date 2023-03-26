@@ -12,7 +12,7 @@ hero:
       link: /guide/configure/prepare
     - theme: alt
       text: 如何安装
-      link: /api-examples
+      link: /installation/how
 
 features:
   - icon:

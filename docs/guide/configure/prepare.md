@@ -35,8 +35,4 @@ builder: # 打包镜像的服务，一般不用修改
 系统首次启动时会自动创建最高管理员权限账号`root`，默认密码也是`root`。
 
 登录后的界面如下图所示：
-![img.png](../../assets/project_01.png)
-
-## More
-
-Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
+![img.png](/assets/project_01.png)
