@@ -21,20 +21,20 @@ docker run -d -p 5000:5000 --restart always --name registry registry:2
 :::code-group
 
 ```shell [macos arm64]
-wget https://github.com/go-to-cloud/go-to-cloud/releases/download/v1.0.0-beta/gotocloud-macos_arm64.tar.gz
+wget https://github.com/go-to-cloud/go-to-cloud/releases/download/1.0.0-beta/gotocloud-macos_arm64.tar.gz
 ```
 
 ```shell [macos amd64]
-wget https://github.com/go-to-cloud/go-to-cloud/releases/download/v1.0.0-beta/gotocloud-macos_amd64.tar.gz
+wget https://github.com/go-to-cloud/go-to-cloud/releases/download/1.0.0-beta/gotocloud-macos_x64.tar.gz
 ```
 
-```shell [linux amd64]
-wget https://github.com/go-to-cloud/go-to-cloud/releases/download/v1.0.0-beta/gotocloud-linux_amd64.tar.gz
+```shell [linux x64]
+wget https://github.com/go-to-cloud/go-to-cloud/releases/download/1.0.0-beta/gotocloud-linux_x64.tar.gz
 ```
 
 ```shell [windows]
 # 下载地址
-wget https://github.com/go-to-cloud/go-to-cloud/releases/download/v1.0.0-beta/gotocloud-windows_amd64.tar.gz
+wget https://github.com/go-to-cloud/go-to-cloud/releases/download/1.0.0-beta/gotocloud-windows_x64.tar.gz
 ```
 
 :::
