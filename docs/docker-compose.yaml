@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  gtc-frontend:
+    image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend-1.0-rc1-main:1.0-rc1
+    container_name: "gtc-frontend"
+    depends_on:
+      - gtc-service
+    restart: always
+    networks:
+        - gtc-network
+    ports:
+      - "8080:80"
+
+  gtc-service:
+    image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-1.0-rc1-main:1.0-rc1
+    container_name: "gtc-service"
+    depends_on:
+      - mysql
+    restart: always
+    networks:
+      - gtc-network
+    environment:
+      - ENV=dev
+      - dbuser=root
+      - dbpwd=123456
+      - dburl=mysql
+      - schema=gotocloud
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "/usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai"
+  
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    networks:
+      - gtc-network    
+    restart: always
+    volumes:
+        - "./mysql/data:/var/lib/mysql"
+    environment:
+        MYSQL_DATABASE: gotocloud
+        MYSQL_ROOT_PASSWORD: 123456
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+networks:
+  gtc-network:
+    driver: bridge
