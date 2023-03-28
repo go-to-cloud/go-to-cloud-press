@@ -18,7 +18,7 @@
 
 ## 一键安装
 
-下载[docker-compose.yaml](/assets/docker-compose.yaml)文件，然后切换到存放目录
+下载[docker-compose.yaml](/docker-compose.yaml)文件，然后切换到存放目录
 
 :::tip
 建议将docker-compose.yaml文件存放空目录（部署成功后会产生mysql持久化文件），执行以下命令
@@ -33,7 +33,7 @@ docker-compose up
 
 执行成功后，可以在宿主机打开网址
 
-```text
+```txt
 http://localhost:8080
 ```
 
