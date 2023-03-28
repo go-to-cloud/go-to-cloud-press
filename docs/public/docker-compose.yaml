@@ -7,8 +7,6 @@ services:
     depends_on:
       - gtc-service
     restart: always
-    networks:
-        - gtc-network
     ports:
       - "8080:80"
 
@@ -18,8 +16,6 @@ services:
     depends_on:
       - mysql
     restart: always
-    networks:
-      - gtc-network
     environment:
       - ENV=dev
       - dbuser=root
@@ -33,8 +29,6 @@ services:
   mysql:
     image: mysql:latest
     container_name: "gtc-mysql"
-    networks:
-      - gtc-network
     restart: always
     volumes:
         - "./mysql/data:/var/lib/mysql"
@@ -42,7 +36,3 @@ services:
         MYSQL_DATABASE: gotocloud
         MYSQL_ROOT_PASSWORD: 123456
     command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
-
-networks:
-  gtc-network:
-    driver: bridge

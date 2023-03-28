@@ -12,10 +12,10 @@ items:
       name: gtc-frontend
     spec:
       ports:
-        - name: "80"
-          port: 80
+        - name: "8080"
+          port: 8080
           targetPort: 80
-          nodePort: 30080
+          nodePort: 32080
       type: NodePort
       selector:
         io.kompose.service: gtc-frontend
@@ -53,8 +53,11 @@ items:
     spec:
       ports:
         - name: "3306"
-          port: 33060
+          port: 3306
           targetPort: 3306
+        - name: "33060"
+          port: 33060
+          targetPort: 33060
       selector:
         io.kompose.service: gtc-mysql
     status:
@@ -82,7 +85,6 @@ items:
             kompose.version: 1.26.1 (HEAD)
           creationTimestamp: null
           labels:
-            io.kompose.network/gtc-network: "true"
             io.kompose.service: gtc-frontend
         spec:
           containers:
@@ -93,20 +95,6 @@ items:
               resources: {}
           restartPolicy: Always
     status: {}
-  - apiVersion: networking.k8s.io/v1
-    kind: NetworkPolicy
-    metadata:
-      creationTimestamp: null
-      name: gtc-network
-    spec:
-      ingress:
-        - from:
-            - podSelector:
-                matchLabels:
-                  io.kompose.network/gtc-network: "true"
-      podSelector:
-        matchLabels:
-          io.kompose.network/gtc-network: "true"
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -131,7 +119,6 @@ items:
             kompose.version: 1.26.1 (HEAD)
           creationTimestamp: null
           labels:
-            io.kompose.network/gtc-network: "true"
             io.kompose.service: gtc-service
         spec:
           containers:
@@ -141,13 +128,15 @@ items:
                 - name: dbpwd
                   value: "123456"
                 - name: dburl
-                  value: gtc-mysql
+                  value: gtc-mysql:33060
                 - name: dbuser
                   value: root
                 - name: schema
                   value: gotocloud
               image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-1.0-rc1-main:1.0-rc1
               name: gtc-service
+              ports:
+                - containerPort: 80
               resources: {}
               volumeMounts:
                 - mountPath: /etc/localtime
@@ -215,7 +204,6 @@ items:
             kompose.version: 1.26.1 (HEAD)
           creationTimestamp: null
           labels:
-            io.kompose.network/gtc-network: "true"
             io.kompose.service: mysql
         spec:
           containers:
@@ -232,6 +220,7 @@ items:
               name: gtc-mysql
               ports:
                 - containerPort: 33060
+                - containerPort: 3306
               resources: {}
               volumeMounts:
                 - mountPath: /var/lib/mysql
@@ -258,3 +247,4 @@ items:
     status: {}
 kind: List
 metadata: {}
+
