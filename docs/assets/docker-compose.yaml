@@ -10,7 +10,7 @@ services:
     networks:
         - gtc-network
     ports:
-      - "8080:80"
+      - "8090:80"
 
   gtc-service:
     image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-1.0-rc1-main:1.0-rc1
@@ -29,12 +29,12 @@ services:
     volumes:
       - "/etc/localtime:/etc/localtime"
       - "/usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai"
-  
+
   mysql:
-    image: mysql:8.0
-    container_name: mysql
+    image: mysql:latest
+    container_name: "gtc-mysql"
     networks:
-      - gtc-network    
+      - gtc-network
     restart: always
     volumes:
         - "./mysql/data:/var/lib/mysql"

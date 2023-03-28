@@ -6,7 +6,7 @@ export default defineConfig({
   title: "Go-To-Cloud",
   description: "Go-To-Cloud Official Website",
   lastUpdated: true,
-  base: "/docs",
+  // base: "/docs",
   themeConfig: {
     outlineTitle: '本页目录',
     lastUpdatedText: '最近更新时间',
@@ -66,6 +66,8 @@ export default defineConfig({
         text: '如何安装', link: '/installation/how',
         items: [{
           text: '二进制部署', link: 'installation/binary'
+        }, {
+          text: 'Docker部署', link: 'installation/docker_compose'
         }]
       }]
     },
