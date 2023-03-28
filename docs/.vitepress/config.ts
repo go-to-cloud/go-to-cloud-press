@@ -1,24 +1,35 @@
 import { defineConfig } from 'vitepress'
 
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Go-To-Cloud",
   description: "Go-To-Cloud Official Website",
-  // base: "/go-to-cloud-press",
+  lastUpdated: true,
+  base: "/docs",
   themeConfig: {
+    outlineTitle: '本页目录',
+    lastUpdatedText: '最近更新时间',
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    footer: {
+      copyright: 'MIT Licensed. | Copyright © 2022-present Go-To-Cloud'
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '指南', link: '/guide/prepare' },
-      { text: '安装', link: '/markdown-examples' },
-      { text: '日志', link: '/markdown-examples' }
+      { text: '指南', link: '/guide/configure/prepare' },
+      { text: '安装', link: '/installation/how' },
+      { text: '下载', link: '/installation/binary.html#下载地址' }
     ],
 
-    sidebar: [
-      {
-        text: '轻松上手', link: '/guide/prepare',
+    sidebar: {
+      '/guide/': [{
+        text: '轻松上手', link: '/guide/configure/prepare',
         items: [
           {
-            text:'配置环境', link: '/guide/configure',
+            text:'配置环境', link: '/guide/configure/configure',
             items: [{
               text: '代码仓库', link: '/guide/configure/coderepo'
             }, {
@@ -30,17 +41,34 @@ export default defineConfig({
             }]
           },
           {
-            text: '项目管理', link: '/project/intro',
+            text: '项目管理', link: '/guide/project/intro',
             items: [{
-              text: '创建项目', link: '/project/new'
+              text: '创建项目', link: '/guide/project/new'
+            },{
+              text: '管理模块', link: '/guide/project/manage'
             }]
           },
-          { text: '开始构建', link: '/api-examples' },
-          { text: '部署应用'}
-        ]
-      }
-    ],
-
+          { text: '应用监控', link: '/guide/monitor/monitor' },
+          {
+            text: '账号管理', link: '/guide/authz/authz',
+            items: [{
+              text: '用户管理', link: '/guide/authz/users'
+            }, {
+              text: '组织管理', link: '/guide/authz/orgs'
+            }]
+          },
+          {
+            text: '附录1', link: '/guide/appendix_01'
+          }
+        ],
+      }],
+      '/installation/': [{
+        text: '如何安装', link: '/installation/how',
+        items: [{
+          text: '二进制部署', link: 'installation/binary'
+        }]
+      }]
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/go-to-cloud' }
     ]
