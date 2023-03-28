@@ -31,7 +31,11 @@ docker-compose up
 :::info
 首次执行会下载三个镜像包，其中mysql:8.0较大，需要耐心等待一些时间。
 
-执行成功后，可以在宿主机打开网址：[http://localhost:8080](http://localhost:8080)
+执行成功后，可以在宿主机打开网址
+
+```text
+http://localhost:8080
+```
 
 看到登录页面后表示部署成功
 :::
@@ -40,9 +44,9 @@ docker-compose up
 
 ### gtc-frontend
 
-> 镜像`gtc-frontend`表示前端服务，占用宿主机8080端口
+> 镜像`gtc-frontend`表示前端服务，占用宿主机`8080`端口
 
-> 如果宿主机的8080端口被占用，则请修改`docker-compose.yaml`文件
+> 如果宿主机的`8080`端口被占用，则请修改`docker-compose.yaml`文件
 
 ```yaml:line-numbers {1}
 ...略
