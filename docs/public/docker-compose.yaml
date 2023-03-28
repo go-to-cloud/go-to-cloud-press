@@ -10,7 +10,7 @@ services:
     networks:
         - gtc-network
     ports:
-      - "8090:80"
+      - "8080:80"
 
   gtc-service:
     image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-1.0-rc1-main:1.0-rc1
