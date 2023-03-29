@@ -1,250 +1,205 @@
-apiVersion: v1
-items:
-  - apiVersion: v1
-    kind: Service
-    metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-        kompose.version: 1.26.1 (HEAD)
-      creationTimestamp: null
-      labels:
-        io.kompose.service: gtc-frontend
-      name: gtc-frontend
-    spec:
-      ports:
-        - name: "8080"
-          port: 8080
-          targetPort: 80
-          nodePort: 32080
-      type: NodePort
-      selector:
-        io.kompose.service: gtc-frontend
-    status:
-      loadBalancer: {}
-  - apiVersion: v1
-    kind: Service
-    metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-        kompose.version: 1.26.1 (HEAD)
-      creationTimestamp: null
-      labels:
-        io.kompose.service: gtc-service
-      name: gtc-service
-    spec:
-      ports:
-        - name: "80"
-          port: 80
-          targetPort: 80
-      selector:
-        io.kompose.service: gtc-service
-    status:
-      loadBalancer: {}
-  - apiVersion: v1
-    kind: Service
-    metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-        kompose.version: 1.26.1 (HEAD)
-      creationTimestamp: null
-      labels:
-        io.kompose.service: gtc-mysql
-      name: gtc-mysql
-    spec:
-      ports:
-        - name: "3306"
-          port: 3306
-          targetPort: 3306
-        - name: "33060"
-          port: 33060
-          targetPort: 33060
-      selector:
-        io.kompose.service: gtc-mysql
-    status:
-      loadBalancer: {}
-  - apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-        kompose.version: 1.26.1 (HEAD)
-      creationTimestamp: null
-      labels:
-        io.kompose.service: gtc-frontend
-      name: gtc-frontend
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          io.kompose.service: gtc-frontend
-      strategy: {}
-      template:
-        metadata:
-          annotations:
-            kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-            kompose.version: 1.26.1 (HEAD)
-          creationTimestamp: null
-          labels:
-            io.kompose.service: gtc-frontend
-        spec:
-          containers:
-            - image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend-1.0-rc1-main:1.0-rc1
-              name: gtc-frontend
-              ports:
-                - containerPort: 80
-              resources: {}
-          restartPolicy: Always
-    status: {}
-  - apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-        kompose.version: 1.26.1 (HEAD)
-      creationTimestamp: null
-      labels:
-        io.kompose.service: gtc-service
-      name: gtc-service
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          io.kompose.service: gtc-service
-      strategy:
-        type: Recreate
-      template:
-        metadata:
-          annotations:
-            kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-            kompose.version: 1.26.1 (HEAD)
-          creationTimestamp: null
-          labels:
-            io.kompose.service: gtc-service
-        spec:
-          containers:
-            - env:
-                - name: ENV
-                  value: dev
-                - name: dbpwd
-                  value: "123456"
-                - name: dburl
-                  value: gtc-mysql:33060
-                - name: dbuser
-                  value: root
-                - name: schema
-                  value: gotocloud
-              image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-1.0-rc1-main:1.0-rc1
-              name: gtc-service
-              ports:
-                - containerPort: 80
-              resources: {}
-              volumeMounts:
-                - mountPath: /etc/localtime
-                  name: gtc-service-claim0
-                - mountPath: /usr/share/zoneinfo/Asia/Shanghai
-                  name: gtc-service-claim1
-          restartPolicy: Always
-          volumes:
-            - name: gtc-service-claim0
-              persistentVolumeClaim:
-                claimName: gtc-service-claim0
-            - name: gtc-service-claim1
-              persistentVolumeClaim:
-                claimName: gtc-service-claim1
-    status: {}
-  - apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      creationTimestamp: null
-      labels:
-        io.kompose.service: gtc-service-claim0
-      name: gtc-service-claim0
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 100Mi
-    status: {}
-  - apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      creationTimestamp: null
-      labels:
-        io.kompose.service: gtc-service-claim1
-      name: gtc-service-claim1
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 100Mi
-    status: {}
-  - apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-        kompose.version: 1.26.1 (HEAD)
-      creationTimestamp: null
-      labels:
-        io.kompose.service: mysql
-      name: mysql
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          io.kompose.service: mysql
-      strategy:
-        type: Recreate
-      template:
-        metadata:
-          annotations:
-            kompose.cmd: kompose convert -f docker-compose.yaml -o k8s.yaml
-            kompose.version: 1.26.1 (HEAD)
-          creationTimestamp: null
-          labels:
-            io.kompose.service: mysql
-        spec:
-          containers:
-            - args:
-                - mysqld
-                - --character-set-server=utf8mb4
-                - --collation-server=utf8mb4_unicode_ci
-              env:
-                - name: MYSQL_DATABASE
-                  value: gotocloud
-                - name: MYSQL_ROOT_PASSWORD
-                  value: "123456"
-              image: mysql:latest
-              name: gtc-mysql
-              ports:
-                - containerPort: 33060
-                - containerPort: 3306
-              resources: {}
-              volumeMounts:
-                - mountPath: /var/lib/mysql
-                  name: mysql-claim0
-          restartPolicy: Always
-          volumes:
-            - name: mysql-claim0
-              persistentVolumeClaim:
-                claimName: mysql-claim0
-    status: {}
-  - apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      creationTimestamp: null
-      labels:
-        io.kompose.service: mysql-claim0
-      name: mysql-claim0
-    spec:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 100Mi
-    status: {}
-kind: List
-metadata: {}
+  apiVersion: v1
+  items:
+    - apiVersion: v1
+      kind: Service
+      metadata:
+        labels:
+          app: gtc-frontend
+        name: gtc-frontend
+      spec:
+        ports:
+          - name: "8080"
+            port: 8080
+            targetPort: 80
+            nodePort: 32080
+        type: NodePort
+        selector:
+          app: gtc-frontend
+      status:
+        loadBalancer: {}
+    - apiVersion: v1
+      kind: Service
+      metadata:
+        labels:
+          app: gtc-service
+        name: gtc-service
+      spec:
+        ports:
+          - name: "80"
+            port: 80
+            targetPort: 80
+        selector:
+          app: gtc-service
+      status:
+        loadBalancer: {}
+    - apiVersion: v1
+      kind: Service
+      metadata:
+        labels:
+          app: gtc-mysql
+        name: gtc-mysql
+      spec:
+        ports:
+          - name: "3306"
+            port: 3306
+            targetPort: 3306
+        selector:
+          app: gtc-mysql
+      status:
+        loadBalancer: {}
+    - apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        labels:
+          app: gtc-frontend
+        name: gtc-frontend
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            app: gtc-frontend
+        strategy: {}
+        template:
+          metadata:
+            labels:
+              app: gtc-frontend
+          spec:
+            containers:
+              - image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend-1.0-rc1-main:1.0-rc1
+                name: gtc-frontend
+                ports:
+                  - containerPort: 80
+                resources: {}
+            restartPolicy: Always
+      status: {}
+    - apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        labels:
+          app: gtc-service
+        name: gtc-service
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            app: gtc-service
+        strategy:
+          type: Recreate
+        template:
+          metadata:
+            labels:
+              app: gtc-service
+          spec:
+            containers:
+              - env:
+                  - name: ENV
+                    value: dev
+                  - name: dbpwd
+                    value: "123456"
+                  - name: dburl
+                    value: gtc-mysql:3306
+                  - name: dbuser
+                    value: root
+                  - name: schema
+                    value: gotocloud
+                image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-1.0-rc1-main:1.0-rc1
+                name: gtc-service
+                ports:
+                  - containerPort: 80
+                resources: {}
+                volumeMounts:
+                  - mountPath: /etc/localtime
+                    name: gtc-service-claim0
+                  - mountPath: /usr/share/zoneinfo/Asia/Shanghai
+                    name: gtc-service-claim1
+            restartPolicy: Always
+            volumes:
+              - name: gtc-service-claim0
+                persistentVolumeClaim:
+                  claimName: gtc-service-claim0
+              - name: gtc-service-claim1
+                persistentVolumeClaim:
+                  claimName: gtc-service-claim1
+      status: {}
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        labels:
+          app: gtc-service-claim0
+        name: gtc-service-claim0
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Mi
+      status: {}
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        labels:
+          app: gtc-service-claim1
+        name: gtc-service-claim1
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Mi
+      status: {}
+    - apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        labels:
+          app: gtc-mysql
+        name: gtc-mysql
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            app: gtc-mysql
+        template:
+          metadata:
+            labels:
+              app: gtc-mysql
+          spec:
+            containers:
+              - args:
+                  - mysqld
+                  - --character-set-server=utf8mb4
+                  - --collation-server=utf8mb4_unicode_ci
+                env:
+                  - name: MYSQL_DATABASE
+                    value: gotocloud
+                  - name: MYSQL_ROOT_PASSWORD
+                    value: "123456"
+                image: mysql:latest
+                name: gtc-mysql
+                ports:
+                  - containerPort: 3306
+                resources: {}
+                volumeMounts:
+                  - mountPath: /var/lib/mysql
+                    name: mysql-claim0
+            restartPolicy: Always
+            volumes:
+              - name: mysql-claim0
+                persistentVolumeClaim:
+                  claimName: mysql-claim0
+      status: {}
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        labels:
+          app: mysql-claim0
+        name: mysql-claim0
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Mi
+      status: {}
+  kind: List
+  metadata: {}
 
