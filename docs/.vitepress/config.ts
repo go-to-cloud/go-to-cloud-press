@@ -21,7 +21,6 @@ export default defineConfig({
     nav: [
       { text: '指南', link: '/guide/configure/prepare' },
       { text: '安装', link: '/installation/how' },
-      { text: '下载', link: '/installation/binary.html#下载地址' }
     ],
 
     sidebar: {
@@ -68,6 +67,8 @@ export default defineConfig({
           text: '二进制部署', link: 'installation/binary'
         }, {
           text: 'Docker部署', link: 'installation/docker_compose'
+        }, {
+          text: 'K8S部署', link: 'installation/k8s'
         }]
       }]
     },

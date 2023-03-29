@@ -58,7 +58,9 @@
 ![step1](/assets/project_build_step1.png)
 
 :::tip 构建环境
-构建环境是指编译、打包代码的系统环境，本质上就是用于创建Docker镜像的基础镜像
+构建环境是运行打包镜像的基础环境，编译代码所依赖的SDK依然是由Dockerfile的基础镜像指定
+
+> 注意：最终的镜像产物依然是由项目中的Dockerfile控制
 
 `GTC`内置了`.Net`、`Golang`、`Java`、`NodeJS`作为基础构建环境
 :::
