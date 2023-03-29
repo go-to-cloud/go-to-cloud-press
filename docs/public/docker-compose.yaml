@@ -2,7 +2,7 @@ version: '3'
 
 services:
   gtc-frontend:
-    image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend-1.0-rc1-main:1.0-rc1
+    image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend-1.0-rc2-main:1.0-rc2
     container_name: "gtc-frontend"
     depends_on:
       - gtc-service
