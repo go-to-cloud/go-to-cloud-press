@@ -6,7 +6,7 @@ export default defineConfig({
   title: "Go-To-Cloud",
   description: "Go-To-Cloud Official Website",
   lastUpdated: true,
-  base: "/docs",
+  // base: "/docs",
   themeConfig: {
     outlineTitle: '本页目录',
     lastUpdatedText: '最近更新时间',
