@@ -65,7 +65,7 @@
               app: gtc-frontend
           spec:
             containers:
-              - image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend:1.0.0-rc3
+              - image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend:1.0.0-rc4
                 name: gtc-frontend
                 ports:
                   - containerPort: 80
