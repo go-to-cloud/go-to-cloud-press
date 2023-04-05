@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Go-To-Cloud"
   text: "开箱即用的CICD工具"
-  tagline: 面向小型团队的代码构建和部署工具
+  tagline: 代码极速上云工具
   actions:
     - theme: brand
       text: 轻松上手
@@ -18,7 +18,7 @@ features:
   - icon:
       src: /icons/target.png
     title: 目标
-    details: 小型团队快速迭代业务过程中最简洁易用的CICD工具
+    details: 简洁易用地将代码构建并部署上云
   - icon:
       src: /icons/highlight.png
     title: 特点
@@ -26,6 +26,6 @@ features:
   - icon:
       src: /icons/opensrc.png
     title: 开源
-    details: 项目完全开源，任意使用，当然也欢迎你的PR
+    details: 项目免费开源，任意使用，欢迎提供PR
 ---
 
