@@ -11,8 +11,8 @@ hero:
       text: 轻松上手
       link: /guide/configure/prepare
     - theme: alt
-      text: 如何安装
-      link: /installation/how
+      text: 在线体验
+      link: https://demo.gotocloud.vip
 
 features:
   - icon:
