@@ -18,7 +18,7 @@ features:
   - icon:
       src: /icons/target.png
     title: 目标
-    details: 简洁易用地将代码构建并部署上云
+    details: 简简单单将代码部署上云
   - icon:
       src: /icons/highlight.png
     title: 特点
