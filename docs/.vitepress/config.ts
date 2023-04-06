@@ -15,7 +15,7 @@ export default defineConfig({
       next: '下一页'
     },
     footer: {
-      message: '<a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2023008330号</a>',
+      message: '<a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备2023008330号</a> | <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602013016" target="_blank">浙公网安备 33010602013016号</a>',
       copyright: 'MIT Licensed. | Copyright © 2022-present Go-To-Cloud'
     },
     // https://vitepress.dev/reference/default-theme-config
