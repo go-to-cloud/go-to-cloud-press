@@ -173,7 +173,7 @@
                     value: gotocloud
                   - name: MYSQL_ROOT_PASSWORD
                     value: "123456"
-                image: mysql:latest
+                image: mysql:8.0
                 name: gtc-mysql
                 ports:
                   - containerPort: 3306

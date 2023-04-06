@@ -27,7 +27,7 @@ services:
       - "/usr/share/zoneinfo/Asia/Shanghai:/usr/share/zoneinfo/Asia/Shanghai"
 
   mysql:
-    image: mysql:latest
+    image: mysql:8.0
     container_name: "gtc-mysql"
     restart: always
     volumes:
