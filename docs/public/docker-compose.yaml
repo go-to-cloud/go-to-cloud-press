@@ -2,7 +2,7 @@ version: '3'
 
 services:
   gtc-frontend:
-    image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend:1.0.0-rc4
+    image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc-frontend:1.0.0-rc5
     container_name: "gtc-frontend"
     depends_on:
       - gtc-service
@@ -11,7 +11,7 @@ services:
       - "8080:80"
 
   gtc-service:
-    image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc:1.0.0-rc3
+    image: go-to-cloud-docker.pkg.coding.net/release/go-to-cloud/gtc:1.0.0-rc5
     container_name: "gtc-service"
     depends_on:
       - mysql
