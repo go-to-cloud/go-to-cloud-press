@@ -100,11 +100,45 @@ Git地址中可以看到导入到项目中的仓库地址，选择仓库后，`�
 
 ![镜像制品](/assets/project_build_step4.png)
 
-:::info Dockerfile
-填写代码仓库中的Dockerfile文件路径，含Dockerfile文件名
+> 以下图代码结构为例
 
-例如构建go-to-cloud项目时，Dockerfile栏填写 `./Dockerfile`
+```html
+.
+├── LICENSE
+├── README.md
+├── src
+│   ├── Solution.sln
+│   ├── Dockerfile
+│   ├── 工程1
+│   │   ├── 工程1.csproj
+│   │   ├── ...
+│   ├── 工程2
+│   │   ├── 工程2.csproj
+│   │   ├── ...
+│   ├── 工程3
+│   │   ├── 工程3.csproj
+│   │   ├── ...
+├── test
+│   └── XUnitTest
+│       ├── XUnitTest.csproj
+│       ├── BaseTest.cs
+│       ├── ....cs
+└── ...
+```
+
+:::warning 项目所在目录
+填写代码仓库中项目相对于仓库的路径
+
+以上图为例，项目位于`src`目录，因此 `项目所在目录` 设置为`/src`
 :::
+
+:::warning Dockerfile
+填写代码仓库中的Dockerfile文件路径，**含Dockerfile文件名**
+
+注意，Dockerfile是相对于 `项目所在目录`，如上图中，将`项目所在目录`设置为/src，由于`Dockerfile`位于src目录中，则此处仅需填写`Dockerfile`即可
+
+:::
+
 
 ::: info 制品名称
 在制品仓库中显示的镜像名称，不要带tag，比如go-to-cloud-1.2.3，~~不能使用go-to-cloud-1.2.3:latest~~
