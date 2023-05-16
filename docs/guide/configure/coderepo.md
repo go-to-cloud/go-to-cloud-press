@@ -11,20 +11,16 @@
 `所属组织`是指当前仓库可以被哪些组织的成员使用
 :::
 
-:::details 仓库类型
-目前仅支持`私有`项目，即必需提供AccessToken才可以访问的仓库
-:::
-
 :::details 仓库地址
-是指仓库的URL，而不是~~代码仓库~~地址，
+如果项目仓库是github或gitee，则不需要填，如果是gitlab或gitea，则是指仓库的URL，而不是~~代码仓库~~地址，
 
-比如go-to-cloud在github上的仓库地址是
+比如go-to-cloud在gitlab的仓库地址是
 
-`https://www.github.com/go-to-cloud/go-to-cloud.git` 
+`https://private.code-repo.com/go-to-cloud/go-to-cloud.git` 
 
 那么**仓库地址**是指 
 
-`https://www.github.com/go-to-cloud`
+`https://private.code-repo.com/go-to-cloud`
 :::
 
 :::details 访问令牌
