@@ -1,3 +1,9 @@
+---
+  apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: gotocloud
+---
   apiVersion: v1
   items:
     - apiVersion: v1
@@ -6,6 +12,7 @@
         labels:
           app: gtc-frontend
         name: gtc-frontend
+        namespace: gotocloud
       spec:
         ports:
           - name: "8080"
@@ -23,6 +30,7 @@
         labels:
           app: gtc-service
         name: gtc-service
+        namespace: gotocloud
       spec:
         ports:
           - name: "80"
@@ -38,6 +46,7 @@
         labels:
           app: gtc-mysql
         name: gtc-mysql
+        namespace: gotocloud
       spec:
         ports:
           - name: "3306"
@@ -53,6 +62,7 @@
         labels:
           app: gtc-frontend
         name: gtc-frontend
+        namespace: gotocloud
       spec:
         replicas: 1
         selector:
@@ -78,6 +88,7 @@
         labels:
           app: gtc-service
         name: gtc-service
+        namespace: gotocloud
       spec:
         replicas: 1
         selector:
@@ -127,6 +138,7 @@
         labels:
           app: gtc-service-claim0
         name: gtc-service-claim0
+        namespace: gotocloud
       spec:
         accessModes:
           - ReadWriteOnce
@@ -140,6 +152,7 @@
         labels:
           app: gtc-service-claim1
         name: gtc-service-claim1
+        namespace: gotocloud
       spec:
         accessModes:
           - ReadWriteOnce
@@ -153,6 +166,7 @@
         labels:
           app: gtc-mysql
         name: gtc-mysql
+        namespace: gotocloud
       spec:
         replicas: 1
         selector:
@@ -193,6 +207,7 @@
         labels:
           app: mysql-claim0
         name: mysql-claim0
+        namespace: gotocloud
       spec:
         accessModes:
           - ReadWriteOnce
